@@ -74,6 +74,32 @@ Front-end React app deployed via Azure Static Web Apps
 
 Update environment variables accordingly to point the front end to the live back-end URL.
 
+### Database Setup
+
+This app uses SQL Server as the back-end database.
+
+#### Local Development:
+
+We use Azure SQL Edge via Docker.
+
+To run it locally:
+
+```
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=password" -p 1433:1433 --name sql1 -d mcr.microsoft.com/azure-sql-edge
+```
+
+Then your connection string in appsettings.Development.json should look like:
+
+```
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost,1433;Database=TaskTrackerDb;User Id=sa;Password=password;TrustServerCertificate=true;"
+}
+```
+
+#### Production:
+
+You'll need to configure a cloud SQL database (e.g., Azure SQL Database) and supply its connection string via environment variables in the App Service settings.
+
 ---
 
 ## Folder Structure
