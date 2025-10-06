@@ -45,8 +45,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+/* Enable Swagger temporarily while testing deployment
 app.UseSwagger();
 app.UseSwaggerUI();
+*/
 
 app.UseHttpsRedirection();
 
