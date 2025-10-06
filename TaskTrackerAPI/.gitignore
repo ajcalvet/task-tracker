@@ -22,6 +22,7 @@ Thumbs.db
 secrets.json
 
 # ASP.NET Core environment-specific files
+appsettings.json
 appsettings.*.json
 
 # Rider (JetBrains IDE)
