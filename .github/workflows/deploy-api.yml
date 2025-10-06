@@ -1,0 +1,39 @@
+name: Deploy TaskTracker API to Azure
+
+on:
+  push:
+    branches:
+      - main  # or your branch name
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore
+      run: dotnet restore TaskTrackerAPI/TaskTrackerAPI.csproj
+
+    - name: Build
+      run: dotnet build --configuration Release TaskTrackerAPI/TaskTrackerAPI.csproj
+
+    - name: Publish
+      run: dotnet publish --configuration Release TaskTrackerAPI/TaskTrackerAPI.csproj -o ./publish
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'tasktracker-api-dccucqetcdbpfmam' # your app name exactly
+        package: ./publish
