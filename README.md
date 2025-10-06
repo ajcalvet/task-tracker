@@ -4,6 +4,29 @@ A full-stack task management application built with React for the front end and 
 
 ---
 
+## Website
+
+Check out the **Task Tracker** web UI (React front end) hosted at:  
+[https://white-pond-0be28ef1e.1.azurestaticapps.net](https://white-pond-0be28ef1e.1.azurestaticapps.net)  
+
+You can use the web app to:  
+- View existing tasks  
+- Add new tasks  
+- Update or mark tasks as complete  
+
+![Task Tracker Web UI](img/tasktracker-webui-screenshot.png)  
+
+The back-end **API** is hosted at:  
+[https://tasktracker-api-dccucqetcdbpfmam.canadacentral-01.azurewebsites.net](https://tasktracker-api-dccucqetcdbpfmam.canadacentral-01.azurewebsites.net)  
+
+It supports standard REST operations on the `/api/Tasks/` endpoint:  
+- `GET` – retrieve tasks  
+- `POST` – create a new task  
+- `PUT` / `PATCH` – update existing tasks  
+- `DELETE` – remove tasks
+
+---
+
 ## Features
 
 - Create, read, update, and delete tasks
